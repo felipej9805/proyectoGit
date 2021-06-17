@@ -27,33 +27,18 @@ pipeline {
             }
         }
 
-        stage(' Unit Testing') {
+        stage(' Terraform init') {
             steps {
                 sh """
-                echo "Running Unit Tests"
+                terraform init
                 """
             }
         }
 
-        stage('Code Analysis') {
+        stage('Terraform plan') {
             steps {
                 sh """
-                echo "Running Code Analysis"
-                """
-            }
-        }
-
-        stage('Build Deploy Code') {
-            when {
-                branch 'develop'
-            }
-            steps {
-                sh """
-                echo "Building Artifact"
-                """
-
-                sh """
-                echo "Deploying Code"
+                terraform plan
                 """
             }
         }
