@@ -10,7 +10,7 @@ provider "azurerm" {
 provider "github" {
   version = "~> 4.0"
   #token = var.token # or `GITHUB_TOKEN`
-  token = "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"
+  token = "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"
 
 }
 
