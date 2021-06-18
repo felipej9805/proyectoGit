@@ -14,24 +14,16 @@ provider "github" {
 data "template_file" "init" {
   template = "${file("${path.module}/template.tpl")}"
   vars = {
-    environment_name = var.environment_name
-    name             = "ddp-avl-simulator-ui"
-    version          = "0.1.1"
-    location         = "usgovvirginia"
-    environment      = "dev"
-    customer         = "gov"
-    image_version    = "develop"
-    cloud            = "gov"
+    environment_name = var.environment_name //usgovernment
+    name             = var.name  //"ddp-avl-simulator-ui"
+    version_value          = var.version_value // "0.1.1"
+    location         = var.location //"usgovvirginia"
+    environment      = var.environment  //"dev"
+    customer         = var.customer //"gov"
+    image_version    = var.image_version // "develop"
+    cloud            = var.cloud  //"gov"
   }
 }
-
-variable environment_name {
-  type        = string
-  default     = "usgovernment"
-  description = ""
-}
-
-
 resource "local_file" "foo" {
   content  = data.template_file.init.rendered
   filename = "${path.module}/ARCHIVO"
@@ -65,4 +57,56 @@ resource "github_repository_pull_request" "example" {
     body            = "This will change everything"
     depends_on = [github_repository_file.file]
 
+}
+
+
+############## VARIABLES ###############################
+
+variable environment_name {
+  type        = string
+  default     = "usgovernment"
+  description = ""
+}
+
+variable name {
+  type        = string
+  default     = "ddp-avl-simulator-ui"
+  description = ""
+}
+
+variable version_value {
+  type        = string
+  default     = "0.1.1"
+  description = ""
+}
+
+variable location {
+  type        = string
+  default     = "usgovvirginia"
+  description = ""
+}
+
+
+variable environment {
+  type        = string
+  default     = "dev"
+  description = ""
+}
+
+variable customer {
+  type        = string
+  default     = "gov"
+  description = ""
+}
+
+variable image_version {
+  type        = string
+  default     = "develop"
+  description = ""
+}
+
+variable cloud {
+  type        = string
+  default     = "gov"
+  description = ""
 }

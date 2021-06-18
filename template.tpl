@@ -18,7 +18,7 @@ terraform {
 ######################
 
 module "deploy" {
-  source        = "s3::https://s3.amazonaws.com/safefleet-terraform-artifacts/${name}-config-${version}.zip"
+  source        = "s3::https://s3.amazonaws.com/safefleet-terraform-artifacts/${name}-config-${version_value}.zip"
   location      = "${location}"
   environment   = "${environment}"
   customer      = "${customer}"
