@@ -9,7 +9,6 @@ provider "azurerm" {
 # Configure the GitHub Provider
 provider "github" {
   version = "~> 4.0"
-  #token = var.token # or `GITHUB_TOKEN`
 }
 
 data "template_file" "init" {
