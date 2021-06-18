@@ -9,7 +9,6 @@ provider "azurerm" {
 # Configure the GitHub Provider
 provider "github" {
   version = "~> 4.0"
-  owner = "felipej9805"
 }
 
 data "template_file" "init" {
