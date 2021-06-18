@@ -34,7 +34,7 @@ pipeline {
                 """
             }
         }
-
+        /*
         stage('Terraform plan') {
             steps {
                 sh """
@@ -50,6 +50,6 @@ pipeline {
                 """
             }
         }
-
+        */
     }   
 }
