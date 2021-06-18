@@ -14,7 +14,7 @@ provider "github" {
 data "template_file" "init" {
   template = "${file("${path.module}/template.tpl")}"
   vars = {
-    environment_name = "usgovernment"
+    environment_name = var.environment_name
     name             = "ddp-avl-simulator-ui"
     version          = "0.1.1"
     location         = "usgovvirginia"
@@ -24,6 +24,13 @@ data "template_file" "init" {
     cloud            = "gov"
   }
 }
+
+variable environment_name {
+  type        = string
+  default     = "usgovernment"
+  description = ""
+}
+
 
 resource "local_file" "foo" {
   content  = data.template_file.init.rendered
