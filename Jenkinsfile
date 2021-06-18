@@ -34,22 +34,6 @@ pipeline {
                 """
             }
         }
-        /*
-        stage('Terraform plan') {
-            steps {
-                sh """
-                terraform plan -out=tfplan
-                """
-            }
-        }
 
-        stage('Terraform apply') {
-            steps {
-                sh """
-                terraform apply -auto-approve tfplan
-                """
-            }
-        }
-        */
     }   
 }
